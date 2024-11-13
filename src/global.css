@@ -1,0 +1,23 @@
+@font-face {
+  font-family: Boring;
+  src:local("../public/BoringSansBold.ttf");
+}
+:root {
+    --primary: 51,51,51;
+    --dark: 0,0,0;
+    --light: 201,201,201;
+		--accent: 36, 158, 134;
+		--accent-light: 124, 204, 150;
+		--accent-dark: 19, 110, 51;
+		--accent-gradient: linear-gradient(
+			35deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+}
+.shadow-border {
+  border: 4px solid rgb(var(--dark));
+  border-radius: 15px;
+  box-shadow: 10px 5px 0 rgb(var(--dark));
+}
