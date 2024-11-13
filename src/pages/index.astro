@@ -1,0 +1,137 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from '../components/Card.astro';
+import { SiteInfo, ExternLinks } from '../constants.ts';
+---
+
+<Layout title={SiteInfo.title}>
+	<main class="shadow-border">
+    <nav id="home" class="colorblock shadow-border">
+      <h2><a href="#top"class="text-gradient">{SiteInfo.title}</a></h2>
+      <ul id="links">
+      <!-- TODO: Add expandable nav menu which starts closed-->
+        {SiteInfo.sections.map((sectionName) => (
+          <li><a href={"#" + sectionName} class="shadow-border">{sectionName[0]}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <div id="welcome " class="centered-container ">
+      <img 
+        class="shadow-border"
+        src="../../profile.jpg" 
+        alt="A professionally taken image of Logan Langdon"
+      />
+
+    </div>
+    <div id="about">
+      <h3 class="colorblock shadow-border">About me</h3>
+    </div>
+    <div id="projects" >
+      <ul role="list" class="link-card-grid">
+      </ul>
+    </div>
+    <div id="projects">
+    <h3 class="colorblock shadow-border"> Projects</h3>
+		<ul role="list" class="link-card-grid">
+      <!--TODO: add three sections corresponding to:-->
+      <!--  - Web development-->
+      <!--  - Game development-->
+      <!--  - Systems programming-->
+      <Card
+        href={ExternLinks.github}
+				title="CodeRoot: Personal Blog"
+				body="Articles delving into the rabbit-holes of various software domains and arriving at universal patterns."
+			/>
+      <Card
+        href={ExternLinks.github}
+				title="Disco-lite: Browser-based "
+				body="Articles delving into the rabbit-holes of various software domains and arriving at universal patterns."
+			/>
+		</ul>
+    <h3 class="colorblock shadow-border">Contact</h3>
+    <Card
+      href={ExternLinks.github}
+      title="Contact"
+      body="Contact me!"
+    />
+    </div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+    background-color: rgb(var(--primary));
+  }
+  nav {
+    display: flex;
+    flex-direction:row;
+    align-items:end;
+    justify-content: space-between;
+  }
+  #links {
+    display: flex;
+    flex-direction:row;
+    /*flex-wrap:wrap;*/
+    justify-content: space-evenly;
+    max-width: 250px;
+  }
+  #links > li >a {
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    margin: 0.5rem;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+  }
+  ul {
+    list-style: none;
+  }
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.colorblock {
+		margin-bottom: 2rem;
+		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+		padding: 1.5rem;
+	}
+	.colorblock code {
+		font-size: 0.8em;
+		font-weight: bold;
+		background: rgba(var(--accent-light), 12%);
+		color: rgb(var(--accent-light));
+		border-radius: 4px;
+		padding: 0.3em 0.2em;
+	}
+	.colorblock strong {
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+  }
+  .centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
