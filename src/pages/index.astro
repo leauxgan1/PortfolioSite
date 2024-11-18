@@ -1,83 +1,55 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from '../components/Card.astro';
+import Navbar from '../components/Navbar.astro';
 import { SiteInfo, ExternLinks } from '../constants.ts';
-
-function swapTheme() {
-  console.log("Swapping themes...");
-  var element = document.body;
-  element.classList.toggle("dark-theme");
-  const btn = document.querySelector(".btn-toggle");
-  if (!btn) {
-    return;
-  }
-  const currentTheme = localStorage.getItem("theme");
-  if (currentTheme == "dark") {
-    document.body.classList.add("dark-theme");
-  }
-   
-  btn.addEventListener("click", function() {
-    document.body.classList.toggle("dark-theme");
-    
-    let theme = "light";
-    if (document.body.classList.contains("dark-theme")) {
-      theme = "dark";
-    }
-    localStorage.setItem("theme", theme);
-  });
-
-}
-
 ---
 
 <Layout title={SiteInfo.title}>
 	<main class="shadow-border-3">
-    <nav id="home" class="colorblock shadow-border-2">
-      <h2><a href="#top">{SiteInfo.title}</a></h2>
-      <ul id="links">
-      <!-- TODO: Add expandable nav menu which starts closed-->
-        {SiteInfo.sections.map((sectionName) => (
-          <li><a href={"#" + sectionName} class="shadow-border-1">{sectionName[0]}</a></li>
-        ))}
-      </ul>
-    </nav>
-    <div id="welcome" >
-      <h3 id="about" class="colorblock shadow-border-2">About me</h3>
+    <Navbar title={SiteInfo.title} />
+    <div id="welcome" class="section">
       <img 
         class="shadow-border-2"
-        src="../../profile.jpg" 
+        src="../../profile.png" 
         alt="A professionally taken image of Logan Langdon"
       />
+      <div id="about" class="container shadow-border-2">
+        <h2>About me</h2>
+        <p>I am a Software Engineer focused on backend technologies </p>
+      </div>
     </div>
-    <h3 id="experience" class="colorblock shadow-border-2">Experience</h3>
+    <div id="experience" class="container shadow-border-2">
+      <h3>Experience</h3>
+    </div>
     <div id="projects" >
       <ul role="list" class="link-card-grid">
       </ul>
     </div>
     <div id="projects">
-    <h3 class="colorblock shadow-border-2"> Projects</h3>
-		<ul role="list" class="link-card-grid">
-      <!--TODO: add three sections corresponding to:--> <!--  - Web development--> <!--  - Game development-->
-      <!--  - Systems programming-->
+      <h3 class="block shadow-border-2"> Projects</h3>
+      <ul role="list" class="link-card-grid">
+        <!--TODO: add three sections corresponding to:--> <!--  - Web development--> <!--  - Game development-->
+        <!--  - Systems programming-->
+        <Card
+          href={ExternLinks.github}
+          title="CodeRoot: Personal Blog"
+          body="Articles delving into the rabbit-holes of various software domains and arriving at universal patterns."
+        />
+        <Card
+          href={ExternLinks.github}
+          title="Disco-lite: Browser-based "
+          body="Articles delving into the rabbit-holes of various software domains and arriving at universal patterns."
+        />
+      </ul>
+      <h3 id="contact" class="block shadow-border-2">Contact</h3>
       <Card
         href={ExternLinks.github}
-				title="CodeRoot: Personal Blog"
-				body="Articles delving into the rabbit-holes of various software domains and arriving at universal patterns."
-			/>
-      <Card
-        href={ExternLinks.github}
-				title="Disco-lite: Browser-based "
-				body="Articles delving into the rabbit-holes of various software domains and arriving at universal patterns."
-			/>
-		</ul>
-    <h3 id="contact" class="colorblock shadow-border-2">Contact</h3>
-    <Card
-      href={ExternLinks.github}
-      title="Contact"
-      body="Contact me!"
-      />
-
+        title="Contact"
+        body="Contact me!"
+        />
     </div>
+    <script src="../changetheme.ts"></script>  
 	</main>
 </Layout>
 
@@ -92,67 +64,43 @@ function swapTheme() {
 		line-height: 1.6;
     background-color: rgb(var(--primary));
   }
-  nav {
-    display: flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content: space-between;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit:contain;
+    /*filter: hue-rotate(330deg) contrast(110%);*/
+    /*opacity: 80%;*/
   }
-  #links {
-    display: flex;
-    flex-direction:row;
-    /*flex-wrap:wrap;*/
-    justify-content: space-evenly;
-    max-width: 250px;
-  }
-  #links > li > a {
-    position: relative;
-    padding: 0.5rem 0.7rem 0.5rem 0.7rem;
-    margin-inline: 0.5rem;
-    background: rgba(var(--accent-light));
-  }
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-  }
-  ul {
-    list-style: none;
-  }
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.colorblock {
+	.block {
 		margin-bottom: 2rem;
     background: rgba(var(--accent));
-		padding: 1.5rem;
-	}
+		padding: 1rem 1.5rem 1rem 1.5rem;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-content:flex-start;
+    background: rgba(var(--accent));
+    padding: 0 2rem 0 2rem;
+  }
 	.link-card-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 		gap: 2rem;
 		padding: 0;
   }
+  .section {
+    margin-bottom: 2rem;
+  }
   #welcome {
     display: flex;
-    /*background: black;*/
     flex-direction: column;
     justify-content:space-around;
     flex-direction: row;
   }
   #welcome > * {
-    flex: 1 1 0px;
     max-height: 300px;
-    max-width: 300px
+    max-width: 300px;
   }
 </style>

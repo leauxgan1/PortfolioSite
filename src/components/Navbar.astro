@@ -1,0 +1,112 @@
+---
+interface Props {
+	title: string;
+}
+
+const {title} = Astro.props;
+import {ExternLinks} from "../constants.ts";
+---
+
+<nav id="home" class="block shadow-border-2">
+  <h1><a href="#top" class="">{title}</a></h1>
+  <ul id="links">
+  <!-- TODO: Add expandable nav menu which starts closed-->
+    <!--<div id="expandable" class="shadow-border-1">-->
+    <!--  &lt;-->
+      <li>
+        <a href={ExternLinks.github} class="shadow-border-1">
+          <img class="icon" src="../../github.svg" alt="gith">
+        </a>
+      </li>
+      <li>
+        <a href={ExternLinks.mastodon} class="shadow-border-1">
+          <img class="icon" src="../../mastodon.svg" alt="mas">
+        </a>
+      </li>
+      <li>
+        <a href={ExternLinks.linkedin} class="shadow-border-1">
+          <img class="icon" src="../../linkedin.svg" alt="link">
+        </a>
+      </li>
+    <!--</div>-->
+    <li>
+      <a onclick="console.log('hi');"class="shadow-border-1">
+        <img class="icon" src="../../dm.svg" alt="swp">
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: space-between;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  li {
+    display: flex;
+    max-width: 60px;
+    max-height: 60px;
+  }
+  a {
+    position: relative;
+    cursor: pointer;
+    flex: 1 1 0px;
+    text-decoration: none;
+    color: inherit;
+    padding: 0.5rem;
+    overflow-wrap: anywhere;
+  }
+  ul {
+    list-style: none;
+    max-width: 300px;
+  }
+  /*button {*/
+  /*  position: relative;*/
+  /*  background: rgba(var(--accent-light));*/
+  /*}*/
+  .icon {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit:contain;
+    width: auto;
+    height: auto;
+  }
+	.block {
+		margin-bottom: 2rem;
+    background: rgba(var(--accent));
+		padding: 1rem 1.5rem 1rem 1.5rem;
+  }
+  #links {
+    display: flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    max-width: 300px;
+    gap: 1rem;
+  }
+  #links a {
+    background: rgba(var(--accent-light));
+  }
+  #expandable {
+    display: flex;
+    background: rgba(var(--accent-light));
+    overflow:hidden;
+    flex-direction: row;
+    font-size: 36px;
+    gap: 0.5rem;
+    /*/*height: 40px;*/*/
+    transition: width 0.5s;
+  }
+
+  #expandable:hover {
+    width: 100px;
+  }
+
+
+</style>

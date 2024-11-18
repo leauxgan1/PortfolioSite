@@ -5,26 +5,28 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --background: 255,255,255;
-    --primary: 220,220,250;
+    --background: 225,225,225;
+    --primary: 200,200,240;
     --outline: 0,0,0;
     --light: 201,201,201;
-    --accent: 150, 240, 150;
-    --accent-light: 124, 204, 150;
+    --accent: 250, 200, 140;
+    --accent-light: 124, 150,204;
     --accent-dark: 19, 110, 51;
     --text-color: 0,0,0;
+    --shadow-offset-dir: 1;
   }
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: 180,180,220;
-    --primary: 51,51,51;
-    --outline: 0,0,0;
+    --background: 21,21,51;
+    --primary: 51,81,51;
+    --outline: 51,51,51;
     --light: 201,201,201;
-    --accent: 36, 118, 194;
+    --accent: 36, 128, 84;
     --accent-light: 124, 204, 150;
     --accent-dark: 19, 110, 51;
-    --text-color: 255,255,255;
+    --text-color: 231,231,231;
+    --shadow-offset-dir: -1;
   }
 }
 /* Global css styles that reference the media-query-defined color values */
@@ -37,29 +39,99 @@
   );
   scroll-behavior: smooth; 
 }
+
+/*@keyframes shadowdown-1 {*/
+/*  0% {*/
+/*    box-shadow: calc(var(--shadow-offset-dir) * 0px) 0px 0 rgb(var(--outline));*/
+/*  }*/
+/*  33% {*/
+/*    box-shadow: calc(var(--shadow-offset-dir) * 1px) 1px 0 rgb(var(--outline));*/
+/*  }*/
+/*  66% {*/
+/*    box-shadow: calc(var(--shadow-offset-dir) * 2px) 2px 0 rgb(var(--outline));*/
+/*  }*/
+/*  100% {*/
+/*    box-shadow: calc(var(--shadow-offset-dir) * 3px) 3px 0 rgb(var(--outline));*/
+/*  }*/
+/*}*/
+/*@keyframes shadowdown-2 {*/
+/*  0% {*/
+/*    box-shadow: calc(var(--shadow-offset-dir) * 0px) 0px 0 rgb(var(--outline));*/
+/*  }*/
+/*  33% {*/
+/*    box-shadow: calc(var(--shadow-offset-dir) * 2px) 1px 0 rgb(var(--outline));*/
+/*  }*/
+/*  66% {*/
+/*    box-shadow: calc(var(--shadow-offset-dir) * 4px) 2px 0 rgb(var(--outline));*/
+/*  }*/
+/*  100% {*/
+/*    box-shadow: calc(var(--shadow-offset-dir) * 6px) 3px 0 rgb(var(--outline));*/
+/*  }*/
+/*}*/
+/*@keyframes shadowdown-3 {*/
+/*  0% {*/
+/*    box-shadow: calc(var(--shadow-offset-dir) * 0px) 0px 0 rgb(var(--outline));*/
+/*  }*/
+/*  33% {*/
+/*    box-shadow: calc(var(--shadow-offset-dir) * 2.5px) 1px 0 rgb(var(--outline));*/
+/*  }*/
+/*  66% {*/
+/*    box-shadow: calc(var(--shadow-offset-dir) * 4.5px) 2px 0 rgb(var(--outline));*/
+/*  }*/
+/*  100% {*/
+/*    box-shadow: calc(var(--shadow-offset-dir) * 7px) 3px 0 rgb(var(--outline));*/
+/*  }*/
+/*}*/
+
 /*Defining tailwind-style border boxes for differently sized neobrutalist elements */
 .shadow-border-1 {
   border: 3px solid rgb(var(--outline));
-  border-radius: 10px;
-  box-shadow: 3px 3px 0 rgb(var(--outline));
+  border-radius: 8px;
+  box-shadow: calc(var(--shadow-offset-dir) * 3px) 3px 0 rgb(var(--outline));
+  animation-name: shadowdown-1;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-out;
 }
 .shadow-border-2 {
   border: 4px solid rgb(var(--outline));
-  border-radius: 15px;
-  box-shadow: 6px 5px 0 rgb(var(--outline));
+  border-radius: 12px;
+  box-shadow: calc(var(--shadow-offset-dir) * 6px) 5px 0 rgb(var(--outline));
+  animation-name: shadowdown-2;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;
 }
 .shadow-border-3 {
-  border: 5px solid rgb(var(--outline));
-  border-radius: 25px;
-  box-shadow: 7px 7px 0 rgb(var(--outline));
+  border: 4px solid rgb(var(--outline));
+  border-radius: 18px;
+  box-shadow: calc(var(--shadow-offset-dir) * 7px) 7px 0 rgb(var(--outline));
+  animation-name: shadowdown-3;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
 }
-a.shadow-border-1 {
+/* Smaller links fall down to match their box shadow*/
+a.shadow-border-1, button.shadow-border-1{
   top: 0px;
   left: 0px;
-  transition: left 0.5s, top 0.5s, box-shadow 0.5s;
+  transition: left 0.2s, top 0.2s, box-shadow 0.2s;
 }
-a.shadow-border-1:hover {
+a.shadow-border-1:hover, button.shadow-border-1:hover {
   left: 3px;
   top: 3px;
   box-shadow: 0 0 0 rgba(0,0,0,0);
 }
+
+/* Larger links rise up to show their box shadow*/
+a.shadow-border-2 {
+  top: 3px;
+  left: 3px;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  transition: left 0.2s, top 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+a.shadow-border-2:hover {
+  left: -3px;
+  top: -3px;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0);
+  opacity: 1;
+}
+
+
