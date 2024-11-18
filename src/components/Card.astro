@@ -19,15 +19,12 @@ const { href, title, body } = Astro.props;
 		</p>
 	</a>
 </li>
+
 <style>
 	.link-card {
-		list-style: none;
 		display: flex;
+		list-style: none;
 		padding: 1px;
-		background-image: none;
-		background-size: 400%;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 	}
 	.link-card > a {
     position: relative;
@@ -48,10 +45,18 @@ const { href, title, body } = Astro.props;
 		margin-top: 0.5rem;
 		margin-bottom: 0;
 	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-	}
 	.link-card:is(:hover, :focus-within) h2 {
 		color: rgb(var(--accent));
-	}
+  }
+  a.shadow-border-2 {
+    top: var(--shadow-dist-2);
+    left: var(--shadow-dist-2);
+    box-shadow: 0 0 0 rgb(0,0,0);
+    transition: left 0.2s,top 0.2s, opacity 0.2s, box-shadow 0.2s;
+  }
+  a.shadow-border-2:hover {
+    box-shadow: 3px 3px 0 rgb(0,0,0);
+    top: 0px;
+    left: 0px;  
+  }
 </style>
