@@ -9,18 +9,35 @@ import { SiteInfo, ExternLinks } from '../constants.ts';
 	<main class="shadow-border-3">
     <Navbar title={SiteInfo.title} />
     <div id="welcome" class="section">
-      <img 
+      <img
         class="shadow-border-2"
-        src="../../profile.png" 
+        src="../../profile.png"
         alt="A professionally taken image of Logan Langdon"
       />
       <div id="about" class="container shadow-border-2">
-        <h2>Logan Langdon</h2>
-        <p>Software Engineer </p>
+        <h2>About Me </h2>
+        <p>I am a Software Engineer specializing in: </p>
+        <ul>
+          <li>
+            Backend Web development
+          </li>
+          <li>
+            Devops / Deployment
+          </li>
+          <li>
+            Game Development
+          </li>
+        </ul>
       </div>
     </div>
     <div id="experience" >
       <h3 class="divider">Experience</h3>
+      <h2>Skills</h2>
+      <ul role="list">
+        <li>
+
+        </li>
+      </ul>
     </div>
     <div id="projects" >
       <h3 class="divider">Projects</h3>
@@ -45,7 +62,7 @@ import { SiteInfo, ExternLinks } from '../constants.ts';
       title="Contact"
       body="Contact me!"
       />
-    <script src="../changetheme.ts"></script>  
+    <script src="../changetheme.ts"></script>
 	</main>
 </Layout>
 
@@ -81,6 +98,7 @@ import { SiteInfo, ExternLinks } from '../constants.ts';
     padding: 1rem;
   }
 	.container > h2 {
+    width: auto;
 		margin: 0;
 		font-size: 2.25rem;
 		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);

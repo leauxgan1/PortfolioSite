@@ -34,7 +34,7 @@ const { href, title, body } = Astro.props;
 		padding: calc(1.5rem - 1px);
 		color: rgb(var(--text-color));
 		background-color: rgb(var(--accent-light));
-		opacity: 0.8;
+		opacity: 0.9;
 	}
 	h2 {
 		margin: 0;
@@ -49,14 +49,15 @@ const { href, title, body } = Astro.props;
 		color: rgb(var(--accent));
   }
   a.shadow-border-2 {
-    top: var(--shadow-dist-2);
-    left: var(--shadow-dist-2);
-    box-shadow: 0 0 0 rgb(0,0,0);
-    transition: left 0.2s,top 0.2s, opacity 0.2s, box-shadow 0.2s;
-  }
-  a.shadow-border-2:hover {
-    box-shadow: 3px 3px 0 rgb(0,0,0);
     top: 0px;
     left: 0px;  
+    box-shadow: 0 0 0 rgb(var(--outline));
+    transition: left 0.2s,top 0.2s, opacity 0.2s, box-shadow 0.2s, opacity 0.2s;
+  }
+  a.shadow-border-2:hover {
+    top: calc(-1 * var(--shadow-dist-2));
+    left: calc(-1 * var(--shadow-dist-2));
+    box-shadow: 3px 3px 0 rgb(var(--outline));
+    opacity: 1;
   }
 </style>
