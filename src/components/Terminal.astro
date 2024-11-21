@@ -1,0 +1,29 @@
+---
+import { Terminal } from 'xterm';
+import 'xterm/css/xterm.css';
+
+const initTerminal = () => {
+  const terminal = new Terminal();
+  terminal.open(document.getElementById('terminal-container'));
+  terminal.writeln('Welcome to xterm.js using Astro!');
+};
+
+if (typeof window !== 'undefined') {
+  window.addEventListener('load', initTerminal);
+}
+---
+
+<div id="terminal-container" style="height: 400px; width: 600px;"></div>
+
+<script type="module" client:load>
+  import { Terminal } from 'xterm';
+  import 'xterm/css/xterm.css';
+
+  const initTerminal = () => {
+    const terminal = new Terminal();
+    terminal.open(document.getElementById('terminal-container'));
+    terminal.writeln('Welcome to xterm.js using Astro!');
+  };
+
+  window.addEventListener('load', initTerminal);
+</script>

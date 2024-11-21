@@ -1,4 +1,3 @@
-
 function enableThemeSwap() {
   //document.body.classList.toggle("swapped-mode");
   //console.log(document.body.classList);
@@ -13,7 +12,7 @@ function enableThemeSwap() {
   //}
   //
   buttons.forEach((button) => {
-    button.addEventListener('click', () => {
+    button.addEventListener("click", () => {
       console.log("Swapping themes...");
       document.documentElement.classList.toggle("swapped-mode");
       //let theme = "light";
@@ -22,9 +21,7 @@ function enableThemeSwap() {
       //}
       //localStorage.setItem("theme", theme);
     });
-  
   });
 }
 
 enableThemeSwap();
-

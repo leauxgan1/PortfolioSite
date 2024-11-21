@@ -1,0 +1,49 @@
+---
+interface Props {
+  title: String,
+  description: String,
+}
+
+const {title, description} = Astro.props;
+---
+
+<li class="shadow-border-2">
+  <h2>{title} </h2>
+  <p>{description} </p>
+</li>
+
+
+<style>
+  li {
+    display: flex;
+    flex-direction: column;
+    background: rgb(var(--accent-light));
+    margin-left: -2.5rem;
+    flex-wrap: nowrap;
+		padding: 0rem 1rem 1.5rem 2rem;
+    width: calc(100% - 1rem);
+    max-height: 60px;
+    transition: max-height 0.8s;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    overflow:hidden;
+  }
+  li h2 {
+    transition: color 0.5s;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  li p {
+    padding: 0;
+    margin: -1rem 0 0 0;
+    font-size: 24px;
+    /*transition: opacity 0.2s cubic-bezier(0.22, 1, 0.36, 1);*/
+  }
+  li:hover {
+    max-height: 150px;
+  }
+	li:hover h2 {
+		color: rgb(var(--accent));
+  }
+  li:hover p {
+
+  }
+</style>

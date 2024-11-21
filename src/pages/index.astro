@@ -1,42 +1,76 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Navbar from '../components/Navbar.astro';
-import { SiteInfo, ExternLinks } from '../constants.ts';
+import Terminal from '../components/Terminal.astro';
+import Expandable from '../components/Expandable.astro';
+
+import { Image } from 'astro:assets';
+import { SiteInfo, ExternLinks, Skills } from '../constants.ts';
+import { Icon } from 'astro-icon/components';
+
+import profile from '../images/profile.png';
 ---
 
 <Layout title={SiteInfo.title}>
 	<main class="shadow-border-3">
     <Navbar title={SiteInfo.title} />
-    <div id="welcome" class="section">
-      <img
-        class="shadow-border-2"
-        src="../../profile.png"
+    <!--<Terminal />-->
+    <div class="divider hlist">
+      <Image
+        src={profile}
         alt="A professionally taken image of Logan Langdon"
+        class="profile shadow-border-1"
+        quality={100}
+        inferSize
       />
-      <div id="about" class="container shadow-border-2">
-        <h2>About Me </h2>
-        <p>I am a Software Engineer specializing in: </p>
-        <ul>
-          <li>
-            Backend Web development
-          </li>
-          <li>
-            Devops / Deployment
-          </li>
-          <li>
-            Game Development
-          </li>
-        </ul>
-      </div>
+      <h2>About</h2>
     </div>
-    <div id="experience" >
+    <h2 class="inner-header">I am a Software Engineer specializing in: </h2>
+    <ul>
+      <li>
+        Backend Web development
+      </li>
+      <li>
+        Devops / Deployment
+      </li>
+      <li>
+        Game Development
+      </li>
+    </ul>
+    </div>
+    <div id="skills">
+      <h3 class="divider">Skills</h3>
+      <h2 class="inner-header">Frontend</h2>
+      <ul class="hlist" role="list">
+        <!-- Nodejs, Alpinejs, Tailwind, React, TS, Astro, Nextjs   -->
+        {Skills.frontend.map((skillname) => (
+          <li>
+            <Icon name={skillname} class="icon" />
+          </li>
+        ))}
+      </ul>
+      <h2 class="inner-header">Backend</h2>
+      <ul class="hlist" role="list">
+        <!-- Golang, Apache Kafka, Postgresql, Sqlite, Rabbitmq, Docker, Django,    -->
+        {Skills.backend.map((skillname) => (
+          <li>
+            <Icon name={skillname} class="icon" />
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div id="experience">
       <h3 class="divider">Experience</h3>
-      <h2>Skills</h2>
-      <ul role="list">
-        <li>
-
-        </li>
+      <ul class="vlist" role="list">
+        <Expandable
+          title="Bricks4kids"
+          description="Teaching"
+        />
+        <Expandable
+          title="ACM Game Dev Team Lead"
+          description=""
+        />
       </ul>
     </div>
     <div id="projects" >
@@ -46,13 +80,23 @@ import { SiteInfo, ExternLinks } from '../constants.ts';
         <!--  - Systems programming-->
         <Card
           href={ExternLinks.github}
-          title="CodeRoot: Personal Blog"
-          body="Articles delving into the rabbit-holes of various software domains and arriving at universal patterns."
+          title="CodeRoot: Technical Blog"
+          body="Articles delving into the rabbit-holes of various software domains and determining patterns"
         />
         <Card
           href={ExternLinks.github}
-          title="Disco-lite: Browser-based "
-          body="Articles delving into the rabbit-holes of various software domains and arriving at universal patterns."
+          title="Disco-lite: Browser-based VTT"
+          body="A browser-based virtual tabletop for managing a character in a Disco Elysium inspired table-top game"
+        />
+        <Card
+          href={ExternLinks.github}
+          title="Shadowsand Defense"
+          body="Desktop game created in Godot for the 2024 Pirate Software Game Jam with Alchemy themed mechanics"
+        />
+        <Card
+          href={ExternLinks.github}
+          title="Disco-lite: Browser-based VTT"
+          body="A browser-based virtual tabletop for managing a character in a Disco Elysium inspired table-top game"
         />
       </ul>
     </div>
@@ -77,12 +121,15 @@ import { SiteInfo, ExternLinks } from '../constants.ts';
 		line-height: 1.6;
     background-color: rgb(var(--primary));
   }
+  ul {
+    list-style: none;
+  }
   img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit:contain;
+    /*image-rendering: crisp-edges;*/
+    /*max-width: 100%;*/
+    /*max-height: 100%;*/
+    /*object-fit:contain;*/
     /*filter: hue-rotate(330deg) contrast(110%);*/
-    /*opacity: 80%;*/
   }
 	.block {
 		margin-bottom: 2rem;
@@ -90,10 +137,6 @@ import { SiteInfo, ExternLinks } from '../constants.ts';
 		padding: 1rem 1.5rem 1rem 1.5rem;
   }
   .container {
-    display: flex;
-    flex-direction: column;
-    justify-content:flex-start;
-    align-content:flex-start;
     background: rgba(var(--accent));
     padding: 1rem;
   }
@@ -109,11 +152,12 @@ import { SiteInfo, ExternLinks } from '../constants.ts';
   }
   .divider {
     position:relative;
-    left: -1.2rem;
-    padding: 1rem;
+    left: -1.25rem;
+    padding: 1rem 1rem 1rem 2rem;
     border: 4px solid rgb(var(--outline));
-    width: 100%;
+    width: calc(100% - 1rem);
     background: rgba(var(--accent));
+    margin-bottom: 2rem;
   }
 	.link-card-grid {
 		display: grid;
@@ -124,14 +168,34 @@ import { SiteInfo, ExternLinks } from '../constants.ts';
   .section {
     margin-bottom: 2rem;
   }
-  #welcome {
+  .hlist {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+  .vlist {
     display: flex;
     flex-direction: column;
-    justify-content:space-around;
-    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 1rem;
   }
-  #welcome > * {
-    max-height: 300px;
-    max-width: 300px;
+  .icon {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit:contain;
+    width: 60px;
+    height: auto;
+  }
+  .profile {
+    position: relative;
+    top:0px;
+    left: 0px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+  }
+  .inner-header {
+    padding-left: 1rem;
   }
 </style>
