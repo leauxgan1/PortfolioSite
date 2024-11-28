@@ -4,7 +4,7 @@ interface Props {
 }
 
 const {title} = Astro.props;
-import {ExternLinks} from "../constants.ts";
+import { ExternLinks } from "../constants.ts";
 import { Icon } from 'astro-icon/components';
 ---
 
@@ -69,10 +69,6 @@ import { Icon } from 'astro-icon/components';
     list-style: none;
     max-width: 300px;
   }
-  /*button {*/
-  /*  position: relative;*/
-  /*  background: rgba(var(--accent-light));*/
-  /*}*/
   .icon {
     max-width: 100%;
     max-height: 100%;
@@ -107,10 +103,7 @@ import { Icon } from 'astro-icon/components';
     /*/*height: 40px;*/*/
     transition: width 0.5s;
   }
-
   #expandable:hover {
     width: 100px;
   }
-
-
 </style>

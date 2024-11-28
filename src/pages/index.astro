@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Navbar from '../components/Navbar.astro';
-import Terminal from '../components/Terminal.astro';
+//import Terminal from '../components/Terminal.astro';
 import Expandable from '../components/Expandable.astro';
 
 import { Image } from 'astro:assets';
@@ -17,13 +17,7 @@ import profile from '../images/profile.png';
     <Navbar title={SiteInfo.title} />
     <!--<Terminal />-->
     <div class="divider hlist">
-      <Image
-        src={profile}
-        alt="A professionally taken image of Logan Langdon"
-        class="profile shadow-border-1"
-        quality={100}
-        inferSize
-      />
+      <Image src={profile} alt="A professionally taken image of Logan Langdon" class="profile shadow-border-1" quality={100} inferSize/>
       <h2>About</h2>
     </div>
     <h2 class="inner-header">I am a Software Engineer specializing in: </h2>
@@ -69,7 +63,7 @@ import profile from '../images/profile.png';
         />
         <Expandable
           title="ACM Game Dev Team Lead"
-          description=""
+          description="Seminars and Demos of Game development principles at CSUF"
         />
       </ul>
     </div>
@@ -123,13 +117,6 @@ import profile from '../images/profile.png';
   }
   ul {
     list-style: none;
-  }
-  img {
-    /*image-rendering: crisp-edges;*/
-    /*max-width: 100%;*/
-    /*max-height: 100%;*/
-    /*object-fit:contain;*/
-    /*filter: hue-rotate(330deg) contrast(110%);*/
   }
 	.block {
 		margin-bottom: 2rem;
