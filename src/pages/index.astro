@@ -17,7 +17,12 @@ import profile from '../images/profile.png';
     <Navbar title={SiteInfo.title} />
     <!--<Terminal />-->
     <div class="divider hlist">
-      <Image src={profile} alt="A professionally taken image of Logan Langdon" class="profile shadow-border-1" quality={100} inferSize/>
+      <Image 
+        src={profile} 
+        alt="A professionally taken image of Logan Langdon"
+        class="profile shadow-border-1" 
+        loading="lazy"
+      />
       <h2>About</h2>
     </div>
     <h2 class="inner-header">I am a Software Engineer specializing in: </h2>
