@@ -4,7 +4,7 @@ import icon from "astro-icon";
 
 export default defineConfig({
   site: "https://leauxgan1.github.io/",
-  base: "",
+  base: "/PortfolioSite",
   trailingSlash: "always",
   output: "static",
   integrations: [icon()],
