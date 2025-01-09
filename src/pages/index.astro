@@ -2,13 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Navbar from '../components/Navbar.astro';
-//import Terminal from '../components/Terminal.astro';
 import Expandable from '../components/Expandable.astro';
+//import Terminal from '../components/Terminal.astro';
 
 import { Image } from 'astro:assets';
 import { SiteInfo, ExternLinks, Skills } from '../constants.ts';
 import { Icon } from 'astro-icon/components';
 
+//const baseUrl = import.meta.env.VITE_BASE_URL;
 import profile from '../images/profile.png';
 ---
 
@@ -19,9 +20,9 @@ import profile from '../images/profile.png';
     <div class="divider hlist">
       <Image 
         src={profile} 
-        alt="A professionally taken image of Logan Langdon"
+        alt="Logan Langdon"
         class="profile shadow-border-1" 
-        loading="lazy"
+        loading="eager"
       />
       <h2>About</h2>
     </div>
