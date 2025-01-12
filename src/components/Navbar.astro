@@ -1,4 +1,5 @@
 ---
+
 interface Props {
 	title: string;
 }
@@ -6,10 +7,24 @@ interface Props {
 const {title} = Astro.props;
 import { ExternLinks } from "../constants.ts";
 import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import profile from '../images/profile.png';
+
 ---
 
 <nav id="home" class="block shadow-border-2">
-  <h1><a href="#top" class="">{title}</a></h1>
+  <a href="#top" id="profile-section">
+    <Image
+      src={profile}
+      alt="Logan Langdon"
+      class="profile shadow-border-1"
+      loading="eager"
+    />
+    <h1>
+      <strong>{title}</strong>
+
+    </h1>
+  </a>
   <ul id="links">
   <!-- TODO: Add expandable nav menu which starts closed-->
     <!--<div id="expandable" class="shadow-border-1">-->
@@ -43,6 +58,15 @@ import { Icon } from 'astro-icon/components';
     flex-direction:row;
     align-items:center;
     justify-content: space-between;
+  }
+  #profile-section {
+    display: flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: flex-start;
+    gap: 1rem;
+
+    background:none;
   }
   h1 {
     font-size: 30px;
@@ -79,7 +103,15 @@ import { Icon } from 'astro-icon/components';
 	.block {
 		margin-bottom: 2rem;
     background: rgba(var(--accent));
-		padding: 1rem 1.5rem 1rem 1.5rem;
+		padding: 1rem 2.5rem 1rem 1.5rem;
+  }
+  .profile {
+    position: relative;
+    top:0px;
+    left: 0px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
   }
   #links {
     display: flex;

@@ -5,27 +5,24 @@ import Navbar from '../components/Navbar.astro';
 import Expandable from '../components/Expandable.astro';
 //import Terminal from '../components/Terminal.astro';
 
-import { Image } from 'astro:assets';
 import { SiteInfo, ExternLinks, Skills } from '../constants.ts';
 import { Icon } from 'astro-icon/components';
 
 //const baseUrl = import.meta.env.VITE_BASE_URL;
-import profile from '../images/profile.png';
+
 ---
 
 <Layout title={SiteInfo.title}>
 	<main class="shadow-border-3">
     <Navbar title={SiteInfo.title} />
     <!--<Terminal />-->
-    <div class="divider hlist">
-      <Image 
-        src={profile} 
-        alt="Logan Langdon"
-        class="profile shadow-border-1" 
-        loading="eager"
-      />
-      <h2>About</h2>
-    </div>
+      <!--<dialog open class="shadow-border-1">-->
+      <!--  <form method="dialog">-->
+      <!--    <button class="shadow-border-1"> x </button>-->
+      <!--    <p>terminal</p>-->
+      <!--  </form>-->
+      <!--</dialog>-->
+    <h2 class="divider">About</h2>
     <h2 class="inner-header">I am a Software Engineer specializing in: </h2>
     <ul>
       <li>
@@ -40,7 +37,7 @@ import profile from '../images/profile.png';
     </ul>
     </div>
     <div id="skills">
-      <h3 class="divider">Skills</h3>
+      <h2 class="divider">Skills</h2>
       <h2 class="inner-header">Frontend</h2>
       <ul class="hlist" role="list">
         <!-- Nodejs, Alpinejs, Tailwind, React, TS, Astro, Nextjs   -->
@@ -61,7 +58,7 @@ import profile from '../images/profile.png';
       </ul>
     </div>
     <div id="experience">
-      <h3 class="divider">Experience</h3>
+      <h2 class="divider">Experience</h2>
       <ul class="vlist" role="list">
         <Expandable
           title="Bricks4kids"
@@ -74,7 +71,7 @@ import profile from '../images/profile.png';
       </ul>
     </div>
     <div id="projects" >
-      <h3 class="divider">Projects</h3>
+      <h2 class="divider">Projects</h2>
       <ul role="list" class="link-card-grid">
         <!--TODO: add three sections corresponding to:--> <!--  - Web development--> <!--  - Game development-->
         <!--  - Systems programming-->
@@ -100,7 +97,7 @@ import profile from '../images/profile.png';
         />
       </ul>
     </div>
-    <h3 id="contact" class="divider">Contact</h3>
+    <h2 id="contact" class="divider">Contact</h2>
     <Card
       href={ExternLinks.github}
       title="Contact"
@@ -180,15 +177,16 @@ import profile from '../images/profile.png';
     width: 60px;
     height: auto;
   }
-  .profile {
-    position: relative;
-    top:0px;
-    left: 0px;
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-  }
   .inner-header {
     padding-left: 1rem;
   }
+  background-image: linear-gradient(
+    45deg,
+    magenta,
+    rebeccapurple,
+    dodgerblue,
+    green
+  );
+  opacity: 0.75;
+}
 </style>

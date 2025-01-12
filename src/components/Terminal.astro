@@ -1,0 +1,37 @@
+---
+---
+
+<div id="terminal"> </div>
+
+<script> 
+  import {Terminal} from "@xterm/xterm";
+  import 'xterm/css/xterm.css';
+  const term = new Terminal({
+    cursorBlink: true,
+    fontSize: 14,
+    
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const terminal = document.getElementById("terminal");
+    if(terminal) {
+      term.open(terminal);
+      term.write("I am open!!!");
+    }
+    term.onData(data => {
+      term.write(data);
+    });
+
+  });
+</script>
+
+<style>
+  #terminal {
+    height: 400px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+</style>
+
