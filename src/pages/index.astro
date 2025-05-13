@@ -7,9 +7,6 @@ import Expandable from '../components/Expandable.astro';
 
 import { SiteInfo, ExternLinks, Skills } from '../constants.ts';
 import { Icon } from 'astro-icon/components';
-
-//const baseUrl = import.meta.env.VITE_BASE_URL;
-
 ---
 
 <Layout title={SiteInfo.title}>
@@ -24,7 +21,7 @@ import { Icon } from 'astro-icon/components';
       <!--</dialog>-->
     <h2 class="divider">About</h2>
     <h2 class="inner-header">I am a Software Engineer specializing in: </h2>
-    <ul>
+    <ul id="skills">
       <li>
         Backend Web development
       </li>
@@ -36,7 +33,7 @@ import { Icon } from 'astro-icon/components';
       </li>
     </ul>
     </div>
-    <div id="skills">
+    <div id="technologies">
       <h2 class="divider">Skills</h2>
       <h2 class="inner-header">Frontend</h2>
       <ul class="hlist" role="list">
@@ -98,27 +95,26 @@ import { Icon } from 'astro-icon/components';
       </ul>
     </div>
     <h2 id="contact" class="divider">Contact</h2>
-    <Card
-      href={ExternLinks.github}
-      title="Contact"
-      body="Contact me!"
-      />
+		<div id="contactcard">
+			<Card href={ExternLinks.github} title="Contact" body="Contact me!" />
+		</div>
+				
     <script src="../changetheme.ts"></script>
 	</main>
 </Layout>
 
 <style>
 	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
+		margin-inline: auto;
+		max-width: calc(100% - 3rem);
+		width: auto;
 		color: rgba(var(--text-color));
 		font-size: 20px;
 		line-height: 1.6;
     background-color: rgb(var(--primary));
   }
   ul {
+		padding: 1rem;
     list-style: none;
   }
 	.block {
@@ -142,24 +138,20 @@ import { Icon } from 'astro-icon/components';
   }
   .divider {
     position:relative;
-    left: -1.25rem;
-    padding: 1rem 1rem 1rem 2rem;
-    border: 4px solid rgb(var(--outline));
-    width: calc(100% - 1rem);
     background: rgba(var(--accent));
-    margin-bottom: 2rem;
+    border: 4px solid rgb(var(--outline));
+    padding: 1rem 0 1rem 2rem;
+    width: calc(100% + 8px);
+		margin-left: -4px;
   }
 	.link-card-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-  }
-  .section {
-    margin-bottom: 2rem;
+		gap: 1rem;
   }
   .hlist {
     display: flex;
+		padding: 1rem;
     flex-direction: row;
     justify-content: flex-start;
     gap: 2rem;
@@ -179,14 +171,12 @@ import { Icon } from 'astro-icon/components';
   }
   .inner-header {
     padding-left: 1rem;
+		margin: 0;
   }
-  background-image: linear-gradient(
-    45deg,
-    magenta,
-    rebeccapurple,
-    dodgerblue,
-    green
-  );
-  opacity: 0.75;
-}
+	#skills > li{
+		padding-inline: 1rem;
+	}
+	#contactcard {
+		margin: 1rem;
+	}
 </style>

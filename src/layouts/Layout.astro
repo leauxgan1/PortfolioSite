@@ -8,16 +8,16 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
+		<meta charset="UTF-8">
+		<meta name="description" content="Astro description">
+		<meta name="viewport" content="width=device-width">
+		<meta name="generator" content={Astro.generator}>
     <!--<script src="node_modules/@xterm/xterm/lib/xterm.js"></script>-->
-    <link rel="stylesheet" href="node_modules/@xterm/xterm/css/xterm.css" />
-
+    <link rel="stylesheet" href="node_modules/@xterm/xterm/css/xterm.css">
+		<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 		<title>{title}</title>
 </head>
 <body>
