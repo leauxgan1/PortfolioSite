@@ -105,9 +105,10 @@ import { Icon } from 'astro-icon/components';
 
 <style>
 	main {
-		margin-inline: auto;
-		max-width: calc(100% - 3rem);
+		max-width: 750px;
 		width: auto;
+		margin-inline: max(2rem, 10vw); /* Overrides auto on smaller screens */
+		margin-inline: auto;
 		color: rgba(var(--text-color));
 		font-size: 20px;
 		line-height: 1.6;
