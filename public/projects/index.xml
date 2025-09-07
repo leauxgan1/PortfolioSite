@@ -1,0 +1,19 @@
+<rss version="2.0">
+  <channel>
+    <title>Portfolio for Logan Langdon</title>
+    <link>https://leauxgan1.github.io</link>
+    <description>Portfolio for Logan Langdon - Blog</description>
+    <generator>Zine -- https://zine-ssg.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 07 Sep 2025 04:39:23 +0000</lastBuildDate>
+    
+      <item>
+        <title>Time Blocks CLI Tool</title>
+        <description>&lt;p&gt;This is a project I created for my own personal use as a productivity tool to manage multiple tasks and remind myself to take breaks once and a while!&lt;/p&gt;&lt;p&gt;Hopefully you might get some use out of it as well.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://www.github.com&quot;&gt;Time-blocks CLI Github&lt;/a&gt; – Logan&lt;/p&gt;</description>
+        <link>https://leauxgan1.github.io/projects/time-blocks-cli/</link>
+        <pubDate>Sun, 11 May 2025 00:00:00 +0000</pubDate>
+        <guid>https://leauxgan1.github.io/projects/time-blocks-cli/</guid>
+      </item>
+    
+  </channel>
+</rss>

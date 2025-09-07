@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head id="head">
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <title>Portfolio for Logan Langdon</title>
+
+  <link type="text/css" rel="stylesheet" href="/style.css">
+  <link type="text/css" rel="stylesheet" href="/open-props.css">
+  <link type="text/css" rel="stylesheet" href="/open-props-normalize.css">
+  <script>
+    // Set theme at start based on previously stored theme selection
+    const storedPref = localStorage.getItem("theme");
+    console.log("Stored theme preference is: ", storedPref);
+    if (storedPref) {
+      document.documentElement.setAttribute('data-theme', storedPref);
+    }
+  </script>
+  
+    <style>
+      .date {
+        font-size: 0.9em;
+      }
+
+      p {
+        text-align: center;
+      }
+
+      .title h3 {
+        margin-top: 0;
+      }
+
+      .inline-listing {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-block: var(--size-4);
+        border: var(--size-1) dashed var(--primary);
+        border-radius: var(--radius-3);
+        padding: var(--size-4) var(--size-4);
+      }
+    </style>
+  
+</head>
+
+<body id="body" class="page">
+  <div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox">
+      <div class="round"></div>
+    </label>
+  </div>
+  <header>
+    <h1 id="site-title">Logan Langdon</h1>
+    <h3 id="site-subtitle"><i>Portfolio</i></h3>
+    <nav>
+      <a href="/">Home</a>
+      &nbsp; • &nbsp;
+      <a href="/projects/">Projects</a>
+      &nbsp; • &nbsp;
+      <a href="/blog/">Blog</a>
+    </nav>
+    <hr>
+  </header>
+  
+    <h2>Blog</h2>
+    <div><p>This page contains all of my blog posts.</p><p>Most of my blog posts involve explorations into new technologies or retrospectives on experimentations and projects.</p><p>Enjoy!</p></div>
+    <div class="block">
+      <h2>Post list</h2>
+      <div>
+        <a class="title inline-listing" href="/blog/second-post/">
+          <div>
+            <h3>Second Post</h3>
+            <span class="date">September 06, 2025</span>
+          </div>
+        </a>
+      
+        <a class="title inline-listing" href="/blog/first-post/">
+          <div>
+            <h3>First Post: What&apos;s A Zine?</h3>
+            <span class="date">September 06, 2025</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  
+    <footer>
+      <hr>
+      Contact me!
+      <div class="h-list">
+        <a href="https://github.com/leauxgan1"> Github </a>
+        &nbsp; • &nbsp;
+        <a href="https://www.linkedin.com/in/logan-langdon-55933018a/"> Linkedin </a>
+      </div>
+      <hr>
+    </footer>
+    <script>
+
+      // Light / Dark mode switch
+      const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+      function switchTheme(e) {
+        if (e.target.checked) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark'); //add this
+        }
+        else {
+          document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light'); //add this
+        }
+      }
+      toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
+</body>
+
+</html>

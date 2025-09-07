@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head id="head">
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <title>Portfolio for Logan Langdon</title>
+
+  <link type="text/css" rel="stylesheet" href="/style.css">
+  <link type="text/css" rel="stylesheet" href="/open-props.css">
+  <link type="text/css" rel="stylesheet" href="/open-props-normalize.css">
+  <script>
+    // Set theme at start based on previously stored theme selection
+    const storedPref = localStorage.getItem("theme");
+    console.log("Stored theme preference is: ", storedPref);
+    if (storedPref) {
+      document.documentElement.setAttribute('data-theme', storedPref);
+    }
+  </script>
+  
+    <style>
+      .date {
+        font-size: 0.9em;
+      }
+
+      .title h3 {
+        margin-top: 0;
+      }
+
+      .post-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+
+      .inline-listing {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-block: var(--size-2);
+        border: var(--size-1) dashed var(--primary);
+        border-radius: var(--radius-3);
+        padding-block: var(--size-4);
+        width: min(60%, 600px);
+      }
+    </style>
+  
+</head>
+
+<body id="body" class="page">
+  <div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox">
+      <div class="round"></div>
+    </label>
+  </div>
+  <header>
+    <h1 id="site-title">Logan Langdon</h1>
+    <h3 id="site-subtitle"><i>Portfolio</i></h3>
+    <nav>
+      <a href="/">Home</a>
+      &nbsp; • &nbsp;
+      <a href="/projects/">Projects</a>
+      &nbsp; • &nbsp;
+      <a href="/blog/">Blog</a>
+    </nav>
+    <hr>
+  </header>
+  
+    <h2>Who Am I?</h2>
+    <div><p><img class="profile-image " src="/profile.png"></p><p>I am a Web Developer specializing in Backend Development.</p><p>I am passionate about leveraging web technologies to make information and community more accessible and improve users’ experiences on the web!</p><h2>Experience & Education</h2><p>I have graduated from the California State University of Fullerton with a Bachelor Degree in Computer Science</p><p>I have the most experience with web technologies such as Javascript and restful APIs, though I have dabbled in game development and systems-level programming.</p><p>I am involved in some open source projects such as some examples for the <a href="https://www.data-star.dev" target="_blank">Datastar</a> framework and some CLI apps.</p><p>My most recent professional experience is in teaching Game Development virtually during my time in college.</p><p>However, I am looking for more industry experience to apply my skills and I am willing to learn new technologies and workloads to do so.</p><h2>Tooling</h2><blockquote><p>Backend</p></blockquote><p>My language of choice for backend development is Golang due to its readability and relative performance as well as many other great design choices.</p><p>It would be difficult to speak about backend development without bringing up the elephant in the room…</p><p>PHP!</p><p>It is undeniable that PHP is a greatly important and widely used tool in backend development and is similarly simple compared with Go.</p><p>PHP’s ubiquity and rapid development draw many businesses to it, and I appreciate its community and tooling greatly.</p><blockquote><p>Frontend</p></blockquote><p>Single page applications have become the most popular strategies for the frontend of most webapps, so I have a good amount of experience with:</p><ul><li>React</li><li>Vue</li><li>Solidjs</li><li>Svelte</li></ul><p>I do believe alternative strategies like HATEOAS have many benefits over SPAs, however, and am familiar with HTMX and Datastar for creating simple, efficient apps and avoiding frontend complexity.</p><blockquote><p>Database</p></blockquote><p>I have gained a great deal of familiarity with SQL databases such as SQLite and Postgres from my personal projects.</p><p>I almost always use some form of in-memory datastore like Redis or Valkey for caching or temporary storage.</p><p>For use-cases requiring No-SQL Persistent databases, MongoDB and DynamoDB are my obvious choices which I have some experience with.</p>
+    </div>
+    <h2> Projects </h2>
+    <div class="post-list">
+      <a class="title inline-listing" href="/projects/time-blocks-cli/">
+        <div>
+          <h3>Time Blocks CLI Tool</h3>
+          <span class="date">May 11, 2025</span>
+        </div>
+      </a>
+    </div>
+    <h2> Blog Posts </h2>
+    <div class="post-list">
+      <a class="title inline-listing" href="/blog/second-post/">
+        <div>
+          <h3>Second Post</h3>
+          <span class="date">September 06, 2025</span>
+        </div>
+      </a>
+    
+      <a class="title inline-listing" href="/blog/first-post/">
+        <div>
+          <h3>First Post: What&apos;s A Zine?</h3>
+          <span class="date">September 06, 2025</span>
+        </div>
+      </a>
+    </div>
+  
+    <footer>
+      <hr>
+      Contact me!
+      <div class="h-list">
+        <a href="https://github.com/leauxgan1"> Github </a>
+        &nbsp; • &nbsp;
+        <a href="https://www.linkedin.com/in/logan-langdon-55933018a/"> Linkedin </a>
+      </div>
+      <hr>
+    </footer>
+    <script>
+
+      // Light / Dark mode switch
+      const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+      function switchTheme(e) {
+        if (e.target.checked) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark'); //add this
+        }
+        else {
+          document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light'); //add this
+        }
+      }
+      toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
+</body>
+
+</html>
