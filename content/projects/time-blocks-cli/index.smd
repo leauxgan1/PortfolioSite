@@ -1,0 +1,14 @@
+---
+.title = "Time Blocks CLI Tool",
+.date = @date("2025-05-11T00:00:00"),
+.author = "Logan Langdon",
+.layout = "post.shtml",
+.draft = false,
+--- 
+
+This is a project I created for my own personal use as a productivity tool to manage multiple tasks and remind myself to take breaks once and a while!
+
+Hopefully you might get some use out of it as well.
+
+[Time-blocks CLI Github]($link.url('https://www.github.com'))
+-- Logan

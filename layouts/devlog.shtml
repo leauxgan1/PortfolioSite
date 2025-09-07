@@ -1,0 +1,31 @@
+<extend template="base.shtml">
+
+  <head id="head">
+    <style>
+      .feed {
+        margin-top: 2em;
+      }
+
+      .feed>div {
+        margin: 0 -20px;
+        padding: 5px 20px;
+        margin-bottom: 1em;
+      }
+
+      .feed>div>h3 {
+        margin-top: 0.4em;
+      }
+    </style>
+  </head>
+
+  <body id="body">
+    <h2 class="title" :text="$page.title"></h2>
+    <div :html="$page.contentSection('about')"></div>
+    <div class="feed" :loop="$page.contentSections().slice(1)">
+      <div id="$loop.it.id">
+        <span :text="$loop.it.id.parseDate().format('January 02, 2006')"></span>
+        <h3><a href="$loop.it.id.prefix('#')" :html="$loop.it.heading()"></a></h3>
+        <ctx :html="$loop.it.htmlNoHeading()"></ctx>
+      </div>
+    </div>
+  </body>

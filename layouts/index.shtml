@@ -1,0 +1,56 @@
+<extend template="base.shtml">
+
+  <head id="head">
+    <style>
+      .date {
+        font-size: 0.9em;
+      }
+
+      .title h3 {
+        margin-top: 0;
+      }
+
+      .post-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+
+      .inline-listing {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-block: var(--size-2);
+        border: var(--size-1) dashed var(--primary);
+        border-radius: var(--radius-3);
+        padding-block: var(--size-4);
+        width: min(60%, 600px);
+      }
+    </style>
+  </head>
+
+  <body id="body">
+    <h2 :text="$page.title"></h2>
+    <div :html="$page.content()">
+    </div>
+    <h2> Projects </h2>
+    <div class="post-list" :loop="$site.page('projects').subpages()">
+      <a class="title inline-listing" href="$loop.it.link()">
+        <div>
+          <h3 :text="$loop.it.title"></h3>
+          <span class="date" :text="$loop.it.date.format('January 02, 2006')"></span>
+        </div>
+      </a>
+    </div>
+    <h2> Blog Posts </h2>
+    <div class="post-list" :loop="$site.page('blog').subpages()">
+      <a class="title inline-listing" href="$loop.it.link()">
+        <div>
+          <h3 :text="$loop.it.title"></h3>
+          <span class="date" :text="$loop.it.date.format('January 02, 2006')"></span>
+        </div>
+      </a>
+    </div>
+  </body>

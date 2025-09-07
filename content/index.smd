@@ -1,0 +1,61 @@
+---
+.title = "Who Am I?",
+.date = @date("2025-09-03T00:00:00"),
+.author = "Logan Langdon",
+.layout = "index.shtml",
+.draft = false,
+--- 
+
+[]($image.siteAsset('profile.png').attrs('profile-image'))
+
+I am a Web Developer specializing in Backend Development.
+
+I am passionate about leveraging web technologies to make information and community more accessible and improve users' experiences on the web!
+
+## Experience & Education
+
+I have graduated from the California State University of Fullerton with a Bachelor Degree in Computer Science
+
+I have the most experience with web technologies such as Javascript and restful APIs, though I have dabbled in game development and systems-level programming.  
+
+I am involved in some open source projects such as some examples for the [Datastar]($link.url('https://www.data-star.dev').new(true)) framework and some CLI apps. 
+
+My most recent professional experience is in teaching Game Development virtually during my time in college.
+
+However, I am looking for more industry experience to apply my skills and I am willing to learn new technologies and workloads to do so.
+
+## Tooling
+
+> Backend
+
+My language of choice for backend development is Golang due to its readability and relative performance as well as many other great design choices.
+
+It would be difficult to speak about backend development without bringing up the elephant in the room...
+
+PHP!
+
+It is undeniable that PHP is a greatly important and widely used tool in backend development and is similarly simple compared with Go.
+
+PHP's ubiquity and rapid development draw many businesses to it, and I appreciate its community and tooling greatly.
+
+> Frontend
+
+Single page applications have become the most popular strategies for the frontend of most webapps, so I have a good amount of experience with:
+
+- React
+- Vue
+- Solidjs
+- Svelte
+
+I do believe alternative strategies like HATEOAS have many benefits over SPAs, however, and am familiar with HTMX and Datastar for creating simple, efficient apps and avoiding frontend complexity.
+
+
+> Database
+
+I have gained a great deal of familiarity with SQL databases such as SQLite and Postgres from my personal projects.
+
+I almost always use some form of in-memory datastore like Redis or Valkey for caching or temporary storage.
+
+For use-cases requiring No-SQL Persistent databases, MongoDB and DynamoDB are my obvious choices which I have some experience with.
+
+

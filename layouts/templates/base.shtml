@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head id="head">
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <title :text="$site.title"></title>
+
+  <link type="text/css" rel="stylesheet" href="$site.asset('style.css').link()">
+  <link type="text/css" rel="stylesheet" href="$site.asset('open-props.css').link()">
+  <link type="text/css" rel="stylesheet" href="$site.asset('open-props-normalize.css').link()">
+  <script>
+    // Set theme at start based on previously stored theme selection
+    const storedPref = localStorage.getItem("theme");
+    console.log("Stored theme preference is: ", storedPref);
+    if (storedPref) {
+      document.documentElement.setAttribute('data-theme', storedPref);
+    }
+  </script>
+  <super>
+</head>
+
+<body id="body" class="page">
+  <div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox">
+      <div class="round"></div>
+    </label>
+  </div>
+  <header>
+    <h1 id="site-title">Logan Langdon</h1>
+    <h3 id="site-subtitle"><i>Portfolio</i></h3>
+    <nav>
+      <a href="$site.page('').link()">Home</a>
+      &nbsp; • &nbsp;
+      <a href="$site.page('projects').link()">Projects</a>
+      &nbsp; • &nbsp;
+      <a href="$site.page('blog').link()">Blog</a>
+    </nav>
+    <hr>
+  </header>
+  <super>
+    <footer>
+      <hr>
+      Contact me!
+      <div class="h-list">
+        <a href="https://github.com/leauxgan1"> Github </a>
+        &nbsp; • &nbsp;
+        <a href="https://www.linkedin.com/in/logan-langdon-55933018a/"> Linkedin </a>
+      </div>
+      <hr>
+    </footer>
+    <script>
+
+      // Light / Dark mode switch
+      const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+      function switchTheme(e) {
+        if (e.target.checked) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark'); //add this
+        }
+        else {
+          document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light'); //add this
+        }
+      }
+      toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
+</body>
+
+</html>

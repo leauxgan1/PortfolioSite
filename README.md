@@ -1,4 +1,5 @@
 # Portfolio Site
-This is the repository for an Astro project used to generate the static files for my professional portfolio.
-The styles for this website are inspired by the 'neobrutalism.dev' website and the Neobrutalist theme template provided by Astro, though it doesn't use any of the code provided by that theme package.
+This is the portfolio site for Logan Langdon created using the static site generator [Zine](https://zine-ssg.io/).
+The styling for this site makes use of Open-Props for a consistent design system.
+As new projects and blog posts are created, this site will be updated to show them off here.
 

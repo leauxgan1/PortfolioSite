@@ -1,0 +1,19 @@
+---
+.title = "Blog",
+.date = @date("2025-09-06T00:00:00"),
+.author = "Logan Langdon",
+.layout = "blog.shtml",
+.alternatives = [{ 
+    .name = "rss",
+    .layout = "blog.xml", 
+    .output = "index.xml",
+}],
+.draft = false,
+--- 
+
+This page contains all of my blog posts.
+
+Most of my blog posts involve explorations into new technologies or retrospectives on experimentations and projects.
+
+Enjoy!
+

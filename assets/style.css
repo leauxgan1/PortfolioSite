@@ -1,0 +1,226 @@
+:root {
+  /*
+    Define page variables so they can be changed on the fly
+  */
+  --primary: #5d9cec;
+  --secondary: #fdfdfd;
+  --tertiary: #2F69C2;
+  --background: #d0f0ff;
+  --font-color: #2b2d62;
+  --card-color: #fff;
+  --border-color: #D8C4A2;
+  --accent-gradient: linear-gradient(35deg, var(--tertiary), var(--primary) 30%, var(--font-color) 60%);
+}
+
+[data-theme="dark"] {
+  --primary: #ff6b35;
+  --secondary: #3a3b3c;
+  --tertiary: #ff8c42;
+  --background: #1a1a1a;
+  --font-color: #e0e0e0;
+  --card-color: #252525;
+  --border-color: #4A4A4A;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-align: center;
+  color: var(--tertiary);
+  margin-block: var(--size-6);
+  max-inline-size: none;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: var(--size-4);
+  font-size: 1.2em;
+}
+
+.profile-image {
+  max-width: var(--size-12);
+  border-radius: var(--radius-3);
+  border: var(--size-1) solid var(--border-color);
+  margin-inline: auto;
+  margin-bottom: var(--size-4);
+  animation: fade-in-bloom .5s var(--ease-3), slide-in-left 0.5s var(--ease-3);
+}
+
+b,
+strong {
+  color: var(--tertiary);
+}
+
+blockquote {
+  /* border-inline-end-width: var(--border-size-3); */
+  margin-block: var(--size-2);
+  padding: 0 0 0 1em;
+  border-color: var(--tertiary);
+}
+
+blockquote>* {
+  font-size: 1.2em;
+  color: var(--tertiary);
+}
+
+a {
+  color: var(--tertiary);
+  text-decoration: none;
+  transition: background-position 0.3s var(--ease-2);
+  color: var(--tertiary);
+  background: var(--accent-gradient);
+  display: inline-block;
+  background-size: 225% auto;
+
+  /* Make the text transparent to show the background */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+a:hover {
+  background-position: 33% 0%;
+}
+
+* {
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: background 0.5s, color 0.1s;
+}
+
+html {
+  font-family: var(--font-geometric-humanist);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: var(--background);
+  color: var(--font-color);
+}
+
+body {
+  margin: 0;
+  width: min(100% - 2em, 800px);
+  height: fit-content;
+  padding-inline: 64px;
+  display: flex;
+  flex-direction: column;
+}
+
+#site-title {
+  color: var(--tertiary);
+  font-size: 2.5em;
+  margin-inline: auto;
+  margin-block: 0;
+}
+
+#site-subtitle {
+  color: var(--primary);
+  font-size: 1.5em;
+  margin-inline: auto;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 1em;
+  margin-bottom: 16px;
+}
+
+.block {
+  /* padding: 5px 15px; */
+  margin: 0 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.block h1 {
+  font-size: 1em;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.small {
+  font-size: 0.8em;
+}
+
+.wave {
+  background: var(--background);
+  color: var(--tertiary);
+  text-shadow: 1px 1px 10px var(--secondary), 1px 1px 10px var(--secondary);
+}
+
+.page {
+  background: var(--secondary);
+  border-left: var(--size-1) solid var(--border-color);
+  border-right: var(--size-1) solid var(--border-color);
+}
+
+
+footer {
+  margin-block: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+hr {
+  margin-block: var(--size-2);
+  width: 100%;
+  height: var(--size-1);
+}
+
+p {
+  max-inline-size: none;
+}
+
+.theme-switch-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 0;
+  width: 20px;
+  top: 10px;
+  position: relative;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.round {
+  position: absolute;
+  inset: 0 0 0 0;
+  width: var(--size-7);
+  height: var(--size-7);
+  background-color: var(--background);
+  border: var(--size-1) solid var(--tertiary);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: border-width 0.2s var(--ease-in-1);
+}
+
+.round:hover {
+  border-width: var(--size-2);
+}
+
+code {
+  background: var(--background);
+}
+
+p {
+  margin-block: var(--size-2);
+}
